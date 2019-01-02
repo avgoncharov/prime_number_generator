@@ -30,7 +30,7 @@ struct PrimeNumbersStorage
 {
 	long int MaxCalculatedPrime; // Maximum of calculated prime numbers.
 	long int Count; // Number of calculated prime numbers. 
-	long int CurrentSize; // Size of bufer.
+	long int CurrentSize; // Size of buffer.
 	long int* Numbers; // Array with prime numbers.   
 };
 
