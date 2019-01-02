@@ -24,43 +24,41 @@ SOFTWARE.
 #ifndef PRIME_NUMBER_H
 #define PRIME_NUMBER_H
 /*
-Структура для хранения расчитанных простых чисел.
+Prime numbers storage.
 */
-struct PrimeNumbers
+struct PrimeNumbersStorage
 {
-	long int MaxCalculatedPrime; // Максимальное из рассчитанных простых.
-	long int Count; // Число рассчитанных простых. 
-	long int CurrentSize; // Размер буфера для хранения простых.
-	long int* Numbers; // Массив с рассчитанными просытми.   
+	long int MaxCalculatedPrime; // Maximum of calculated prime numbers.
+	long int Count; // Number of calculated prime numbers. 
+	long int CurrentSize; // Size of bufer.
+	long int* Numbers; // Array with prime numbers.   
 };
 
 /*
-Создает заготовку хранилища простых чисел.
+Creates an instance of prime numbers storage.
 */
-struct PrimeNumbers create_seed();
+struct PrimeNumbersStorage create_seed();
 
 /*
-Удаляет хранилище простых чисел.
+Releases the instance of prime numbers storage.
 */
-void  release(struct PrimeNumbers *primes);
+void  release(struct PrimeNumbersStorage *primes);
 
-/*
-Выполняет проверку, является ли заданное число простым.
-При проверке на простоту происходит расчет недостоющих простых числе, 
-лежащих в интервале между максимальным уже расчитанным
-и проверяемым числом, включительно.
+/*    
+Checks if a number is a prime number.
+The verification process also calculates prime numbers between the maximum of the computed prime number and the verified number inclusive.
 
-Если *primes is null возвращает -1;
-Если заданное число НЕ является простым, возвращает 0.
-Если заданное число является простым, возвращает +1.
+If *primes is null, returns -1;
+If the verified number is not prime, returns 0.
+If the verified number is prime, returns +1.
 */
 int this_is_prime(
-	long int number, // Проверяемое число. 
-	struct PrimeNumbers *primes // Хранилище рассчитанных простых чисел.
+	long int number, // The checked number. 
+	struct PrimeNumbersStorage *primes // Storage of primes.
 );
 
 /*
-Выводит на печать информацию о хранилище простых чисел, включая все рассчитанные простые числа.
+Prints all primes in the storage and the storage summary.
 */
-void print_primes(const struct PrimeNumbers const *primes);
+void print_primes(const struct PrimeNumbersStorage const *primes);
 #endif

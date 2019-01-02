@@ -28,35 +28,33 @@ static const int TRUE = 1;
 static const int ERR = -1;
 
 /*
-Функция сравнения двух чисел, для бинарного поиска.
-Возвращает стандартный результат(-1, 0, 1)
+Compares two numbers.
 */
 int numbers_comparision(void const *lhs, void const *rhs);
 
 /*
-Выполняет поиск числа в списке простых чисел.
-0 - если искомого числа НЕТ в списке простых.
-1 - если искомое число ЕСТЬ в списке простых.
+Seeks for a number in the prime numbers storage.
+If NOT found, returns 0.
+If found, returns 1.
 */
 int find_number_in_list_of_primes(
-	long int number, // Проверяемое число. 
-	const struct PrimeNumbers const *primes // Хранилище рассчитанных простых чисел.
+	long int number, // Seeked number. 
+	const struct PrimeNumbersStorage const *primes // Primes storage.
 );
 
 /*
-Добавляет новое простое число в хранилище простых чисел.
+Adds a new prime to the prime numbers storage.
 */
 void add_to_primes(
-	long int new_prime, // Новое простое число.
-	struct PrimeNumbers *primes  // Хранилище рассчитанных простых чисел.
+	long int new_prime, // A new prime.
+	struct PrimeNumbersStorage *primes  // A prime numbers storage.
 );
 
 /*
-Вычисляет недостоющие простые числа, лежащие в интервале между максимальным уже расчитанным
-и проверяемым числом, включительно.
+Calculates the prime numbers between the max of computed prime numbers and the specified number, inclusive.
 */
 void culc_primes_to_bound(
-	long int number,// Проверяемое число. 
-	struct PrimeNumbers *primes  // Хранилище рассчитанных простых чисел.
+	long int number,// The specified number.
+	struct PrimeNumbersStorage *primes  // The prime numbers storage.
 );
 #endif
