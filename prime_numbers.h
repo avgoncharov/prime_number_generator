@@ -24,7 +24,7 @@ SOFTWARE.
 #ifndef PRIME_NUMBER_H
 #define PRIME_NUMBER_H
 /*
-Prime numbers storage.
+A prime numbers storage struct.
 */
 struct PrimeNumbersStorage
 {
