@@ -28,11 +28,6 @@ static const int TRUE = 1;
 static const int ERR = -1;
 
 /*
-Compares two numbers.
-*/
-int numbers_comparision(void const *lhs, void const *rhs);
-
-/*
 Seeks for a number in the prime numbers storage.
 If NOT found, returns 0.
 If found, returns 1.
@@ -40,14 +35,6 @@ If found, returns 1.
 int find_number_in_list_of_primes(
 	long int number, // Seeked number. 
 	const struct PrimeNumbersStorage const *primes // Primes storage.
-);
-
-/*
-Adds a new prime to the prime numbers storage.
-*/
-void add_to_primes(
-	long int new_prime, // A new prime.
-	struct PrimeNumbersStorage *primes  // A prime numbers storage.
 );
 
 /*
