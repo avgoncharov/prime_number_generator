@@ -24,9 +24,9 @@ SOFTWARE.
 #include "prime_numbers.h"
 #include "pn_utility.h"	 
 
-struct PrimeNumbersStorage create_seed()
+PrimeNumbersStorage create_seed()
 {
-	struct PrimeNumbersStorage primes;
+	PrimeNumbersStorage primes;
 
 	primes.MaxCalculatedPrime = 5;
 	primes.Count = 3;
@@ -40,13 +40,13 @@ struct PrimeNumbersStorage create_seed()
 }
 
 
-void  release(struct PrimeNumbersStorage *primes) 
+void  release(PrimeNumbersStorage *primes) 
 {
 	free(primes->Numbers);
 }     
 
 
-void print_primes(const struct PrimeNumbersStorage const *primes)
+void print_primes(const PrimeNumbersStorage *const primes)
 {
 	printf("------ PrimeNumber Info ------\n");
 	printf("Count: %d\n", primes->Count);
@@ -67,7 +67,7 @@ void print_primes(const struct PrimeNumbersStorage const *primes)
 }
 
 
-int this_is_prime(long int number, struct PrimeNumbersStorage *primes) 
+int this_is_prime(long int number, PrimeNumbersStorage *primes) 
 {
 	if (!primes) {
 		return ERR;

@@ -25,7 +25,7 @@ SOFTWARE.
 
 int main()
 {
-	struct PrimeNumbersStorage primes = create_seed();
+	PrimeNumbersStorage primes = create_seed();
 	
 	printf("Check %d\n", this_is_prime(197700, &primes));
 	print_primes(&primes);

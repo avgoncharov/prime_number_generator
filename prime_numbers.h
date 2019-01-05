@@ -26,23 +26,23 @@ SOFTWARE.
 /*
 A prime numbers storage struct.
 */
-struct PrimeNumbersStorage
+typedef struct 
 {
 	long int MaxCalculatedPrime; // Maximum of calculated prime numbers.
 	long int Count; // Number of calculated prime numbers. 
 	long int CurrentSize; // Size of buffer.
 	long int* Numbers; // Array with prime numbers.   
-};
+} PrimeNumbersStorage;
 
 /*
 Creates an instance of prime numbers storage.
 */
-struct PrimeNumbersStorage create_seed();
+PrimeNumbersStorage create_seed();
 
 /*
 Releases the instance of prime numbers storage.
 */
-void  release(struct PrimeNumbersStorage *primes);
+void release(PrimeNumbersStorage *primes);
 
 /*    
 Checks if a number is a prime number.
@@ -54,11 +54,11 @@ If the verified number is prime, returns +1.
 */
 int this_is_prime(
 	long int number, // The checked number. 
-	struct PrimeNumbersStorage *primes // Storage of primes.
+	PrimeNumbersStorage *primes // Storage of primes.
 );
 
 /*
 Prints all primes in the storage and the storage summary.
 */
-void print_primes(const struct PrimeNumbersStorage const *primes);
+void print_primes(const PrimeNumbersStorage *const primes);
 #endif

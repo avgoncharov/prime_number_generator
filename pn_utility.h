@@ -34,7 +34,7 @@ If found, returns 1.
 */
 int find_number_in_list_of_primes(
 	long int number, // Seeked number. 
-	const struct PrimeNumbersStorage const *primes // Primes storage.
+	const PrimeNumbersStorage *const primes // Primes storage.
 );
 
 /*
@@ -42,6 +42,6 @@ Calculates the prime numbers between the max of computed prime numbers and the s
 */
 void culc_primes_to_bound(
 	long int number,// The specified number.
-	struct PrimeNumbersStorage *primes  // The prime numbers storage.
+	PrimeNumbersStorage *primes  // The prime numbers storage.
 );
 #endif

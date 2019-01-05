@@ -30,7 +30,7 @@ int numbers_comparision(void const *lhs, void const *rhs)
 }
 
 
-int find_number_in_list_of_primes(long int number, const struct PrimeNumbersStorage const *primes)
+int find_number_in_list_of_primes(long int number, const PrimeNumbersStorage *const primes)
 {
 	long int const *result = bsearch(
 		&number,
@@ -43,7 +43,7 @@ int find_number_in_list_of_primes(long int number, const struct PrimeNumbersStor
 }
 
 
-void add_to_primes(long int new_prime, struct PrimeNumbersStorage *primes)
+void add_to_primes(long int new_prime, PrimeNumbersStorage *primes)
 {
 	if (primes->Count == primes->CurrentSize) {
 		long int *buf = primes->Numbers;
@@ -64,7 +64,7 @@ void add_to_primes(long int new_prime, struct PrimeNumbersStorage *primes)
 }
 
 
-void culc_primes_to_bound(long int number, struct PrimeNumbersStorage *primes)
+void culc_primes_to_bound(long int number, PrimeNumbersStorage *primes)
 {
 	long int x = primes->MaxCalculatedPrime;
 
