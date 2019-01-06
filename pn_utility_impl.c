@@ -26,33 +26,35 @@ SOFTWARE.
 
 int numbers_comparision(void const *lhs, void const *rhs)
 {
-	return (*(int*)lhs - *(int*)rhs);
+	Number r = (*(Number*)lhs - *(Number*)rhs);
+	if (r == 0) return 0;
+	return r > 0 ? 1:-1;
 }
 
 
-int find_number_in_list_of_primes(long int number, const PrimeNumbersStorage *const primes)
+int find_number_in_list_of_primes(Number number, const PrimeNumbersStorage *const primes)
 {
 	long int const *result = bsearch(
 		&number,
 		primes->Numbers,
 		primes->Count,
-		sizeof(long int),
+		sizeof(Number),
 		numbers_comparision);
 
 	return result ? TRUE : FALSE;
 }
 
 
-void add_to_primes(long int new_prime, PrimeNumbersStorage *primes)
+void add_to_primes(Number new_prime, PrimeNumbersStorage *primes)
 {
 	if (primes->Count == primes->CurrentSize) {
-		long int *buf = primes->Numbers;
-		long int buf_size = primes->CurrentSize;
+		Number *buf = primes->Numbers;
+		Number buf_size = primes->CurrentSize;
 
 		primes->CurrentSize *= 2;
-		primes->Numbers = (long int*)calloc(primes->CurrentSize, sizeof(long int));
+		primes->Numbers = (Number*)calloc(primes->CurrentSize, sizeof(Number));
 
-		for (int i = 0; i < buf_size; ++i) {
+		for (size_t i = 0; i < buf_size; ++i) {
 			primes->Numbers[i] = buf[i];
 		}
 
@@ -64,12 +66,12 @@ void add_to_primes(long int new_prime, PrimeNumbersStorage *primes)
 }
 
 
-void culc_primes_to_bound(long int number, PrimeNumbersStorage *primes)
+void culc_primes_to_bound(Number number, PrimeNumbersStorage *primes)
 {
-	long int x = primes->MaxCalculatedPrime;
+	Number x = primes->MaxCalculatedPrime;
 
 	while (++x <= number) {
-		int i = 0;
+		size_t i = 0;
 		for (; i < primes->Count; ++i) {
 			if (x % primes->Numbers[i] == 0) break;
 		}

@@ -23,6 +23,7 @@ SOFTWARE.
 #ifndef UTILITY_H
 #define UTILITY_H
 
+typedef long long Number;
 static const int FALSE = 0;
 static const int TRUE = 1;
 static const int ERR = -1;
@@ -33,7 +34,7 @@ If NOT found, returns 0.
 If found, returns 1.
 */
 int find_number_in_list_of_primes(
-	long int number, // Seeked number. 
+	Number number, // Seeked number. 
 	const PrimeNumbersStorage *const primes // Primes storage.
 );
 
@@ -41,7 +42,7 @@ int find_number_in_list_of_primes(
 Calculates the prime numbers between the max of computed prime numbers and the specified number, inclusive.
 */
 void culc_primes_to_bound(
-	long int number,// The specified number.
+	Number number,// The specified number.
 	PrimeNumbersStorage *primes  // The prime numbers storage.
 );
 #endif

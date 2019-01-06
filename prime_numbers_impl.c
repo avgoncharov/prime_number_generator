@@ -31,7 +31,7 @@ PrimeNumbersStorage create_seed()
 	primes.MaxCalculatedPrime = 5;
 	primes.Count = 3;
 	primes.CurrentSize = 3;
-	primes.Numbers = calloc(primes.CurrentSize, sizeof(long int));
+	primes.Numbers = (Number*)calloc(primes.CurrentSize, sizeof(Number));
 	primes.Numbers[0] = 2;
 	primes.Numbers[1] = 3;
 	primes.Numbers[2] = 5;
@@ -51,23 +51,23 @@ void print_primes(const PrimeNumbersStorage *const primes)
 	printf("------ PrimeNumber Info ------\n");
 	printf("Count: %d\n", primes->Count);
 	printf("Current size: %d\n", primes->CurrentSize);
-	printf("Max calculated prime: %d\n", primes->MaxCalculatedPrime);
+	printf("Max calculated prime: %lld\n", primes->MaxCalculatedPrime);
 	
 	printf("------ Prime number: \n");
-	for (int i = 0; i < primes->Count; ++i) {
-		printf("%d, ", primes->Numbers[i]);
+	for (size_t i = 0; i < primes->Count; ++i) {
+		printf("%lld, ", primes->Numbers[i]);
 	}
 	printf("\n");
 
 	printf("------ PrimeNumber Info ------\n");
 	printf("Count: %d\n", primes->Count);
 	printf("Current size: %d\n", primes->CurrentSize);
-	printf("Max calculated prime: %d\n", primes->MaxCalculatedPrime);
+	printf("Max calculated prime: %lld\n", primes->MaxCalculatedPrime);
 	printf("======== PrimeNumber Info ========\n");
 }
 
 
-int this_is_prime(long int number, PrimeNumbersStorage *primes) 
+int this_is_prime(Number number, PrimeNumbersStorage *primes)
 {
 	if (!primes) {
 		return ERR;

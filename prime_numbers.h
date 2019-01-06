@@ -26,12 +26,14 @@ SOFTWARE.
 /*
 A prime numbers storage struct.
 */
+typedef long long Number;
+
 typedef struct 
 {
-	long int MaxCalculatedPrime; // Maximum of calculated prime numbers.
-	long int Count; // Number of calculated prime numbers. 
-	long int CurrentSize; // Size of buffer.
-	long int* Numbers; // Array with prime numbers.   
+	Number MaxCalculatedPrime; // Maximum of calculated prime numbers.
+	size_t Count; // Number of calculated prime numbers. 
+	size_t CurrentSize; // Size of buffer.
+	Number* Numbers; // Array with prime numbers.   
 } PrimeNumbersStorage;
 
 /*
@@ -53,7 +55,7 @@ If the verified number is not prime, returns 0.
 If the verified number is prime, returns +1.
 */
 int this_is_prime(
-	long int number, // The checked number. 
+	Number number, // The checked number. 
 	PrimeNumbersStorage *primes // Storage of primes.
 );
 
