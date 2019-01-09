@@ -39,7 +39,7 @@ typedef struct
 /*
 Creates an instance of prime numbers storage.
 */
-PrimeNumbersStorage create_seed();
+PrimeNumbersStorage* create_seed();
 
 /*
 Releases the instance of prime numbers storage.
