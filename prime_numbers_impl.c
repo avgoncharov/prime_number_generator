@@ -24,17 +24,17 @@ SOFTWARE.
 #include "prime_numbers.h"
 #include "pn_utility.h"	 
 
-PrimeNumbersStorage create_seed()
+PrimeNumbersStorage* create_seed()
 {
-	PrimeNumbersStorage primes;
+	PrimeNumbersStorage *primes = (PrimeNumbersStorage*)malloc(sizeof(PrimeNumbersStorage));
 
-	primes.MaxCalculatedPrime = 5;
-	primes.Count = 3;
-	primes.CurrentSize = 3;
-	primes.Numbers = (Number*)calloc(primes.CurrentSize, sizeof(Number));
-	primes.Numbers[0] = 2;
-	primes.Numbers[1] = 3;
-	primes.Numbers[2] = 5;
+	primes->MaxCalculatedPrime = 5;
+	primes->Count = 3;
+	primes->CurrentSize = 3;
+	primes->Numbers = (Number*)calloc(primes->CurrentSize, sizeof(Number));
+	primes->Numbers[0] = 2;
+	primes->Numbers[1] = 3;
+	primes->Numbers[2] = 5;
 
 	return primes;
 }
@@ -43,7 +43,8 @@ PrimeNumbersStorage create_seed()
 void  release(PrimeNumbersStorage *primes) 
 {
 	free(primes->Numbers);
-}     
+	free(primes);
+}   
 
 
 void print_primes(const PrimeNumbersStorage *const primes)
