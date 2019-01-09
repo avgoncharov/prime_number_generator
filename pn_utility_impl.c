@@ -54,9 +54,7 @@ void add_to_primes(Number new_prime, PrimeNumbersStorage *primes)
 		primes->CurrentSize *= 2;
 		primes->Numbers = (Number*)calloc(primes->CurrentSize, sizeof(Number));
 
-		for (size_t i = 0; i < buf_size; ++i) {
-			primes->Numbers[i] = buf[i];
-		}
+		memcpy(primes->Numbers, buf, sizeof(Number) * buf_size);
 
 		free(buf);
 	}
